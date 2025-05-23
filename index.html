@@ -20,7 +20,7 @@
     </div>
 
     <!--Weight lb - kg -->
-    <div>
+    <div id="Weight_conversion">
         <h2 class="font-bold ml-20 mt-20">Enter the weight value(s) here. *Use comma to separate the value:</h2>
         <div>
             <input id="weight-input" type="text" class="border border-black-900 p-2 mt-6 ml-20 w-250" placeholder="Input here.">
@@ -35,13 +35,33 @@
     </div>
 
     <!--Distance miles - km -->
-    <div>
-
+    <div id="Distance_conversion">
+        <h2 class="font-bold ml-20 mt-20">Enter the distance value(s) here. *Use comma to separate the value:</h2>
+        <div>
+            <input id="distance-input" type="text" class="border border-black-900 p-2 mt-6 ml-20 w-250" placeholder="Input here.">
+        </div>
+        <div class="mt-7 ml-20">
+            <select>
+                <option value="miles-km">Miles to Kilometer</option>
+                <option value="km-miles">Kilometer to Miles</option>
+            </select>
+            <button id="distance-confirm" class="ml-10 w-20 h-9 bg-gray-900 text-white" onclick="Distance_convert()">Convert</button>
+        </div>
     </div>
 
     <!--Temperature F - C -->
-    <div>
-
+    <div id="tem_conversion">
+        <h2 class="font-bold ml-20 mt-20">Enter the temperature value(s) here. *Use comma to separate the value:</h2>
+        <div>
+            <input id="temperature-input" type="text" class="border border-black-900 p-2 mt-6 ml-20 w-250" placeholder="Input here.">
+        </div>
+        <div>
+            <select>
+                <option value="c-f">Celsius to Fahrenheit</option>
+                <option value="f-c">Fahrenheit to Celsius</option>
+            </select>
+            <button id="tem-confirm" class="ml-10 w-20 h-9 bg-gray-900 text-white" onclick="Temperature_convert()">Convert</button>
+        </div>
     </div>
 </body>
 </html>
