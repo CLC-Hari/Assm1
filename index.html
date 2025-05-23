@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4""></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="script.js"></script>
     <title>Conversion Calculator</title>
 </head>
 
@@ -17,6 +18,7 @@
             <button class="bg-blue-000 font-bold p-2 mr-2" onclick="showTab('Distance')">Distance</button>
             <button class="bg-blue-000 font-bold p-2 mr-2" onclick="showTab('Temperature')">Temperature</button>
         </div>
+        <div id="weight-result"></div>
     </div>
 
     <!--Weight lb - kg -->
@@ -32,6 +34,7 @@
             </select>
             <button id="weight-confirm" class="ml-10 w-20 h-9 bg-gray-900 text-white" onclick="Weight_convert()">Convert</button>
         </div>
+        <div id="weight-result"></div>
     </div>
 
     <!--Distance miles - km -->
@@ -47,6 +50,7 @@
             </select>
             <button id="distance-confirm" class="ml-10 w-20 h-9 bg-gray-900 text-white" onclick="Distance_convert()">Convert</button>
         </div>
+        <div id="distance-result"></div>
     </div>
 
     <!--Temperature F - C -->
@@ -62,6 +66,7 @@
             </select>
             <button id="tem-confirm" class="ml-10 w-20 h-9 bg-gray-900 text-white" onclick="Temperature_convert()">Convert</button>
         </div>
+        <div id="temperature-result"></div>
     </div>
 </body>
 </html>
