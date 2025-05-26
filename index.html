@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="script.js"></script>
-    <title>Conversion Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unit Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-white p-4">
+  <div class="max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl mx-auto bg-blue-100 shadow-md rounded-lg p-6">
+    
+    <nav class="flex justify-around border-b pb-4">
+      <button class="tab-btn font-bold text-red-600" data-tab="weight">Weight</button>
+      <button class="tab-btn font-bold text-yellow-600" data-tab="distance">Distance</button>
+      <button class="tab-btn font-bold text-green-600" data-tab="temperature">Temperature</button>
+    </nav>
 
-<body class="bg-gray-100">
-    <!--Navigation bar-->
-    <div id="nav-bar" class="bg-gray-900 text-white p-4 md:flex md:justify-between">
-        <h1 class="text-2xl font-bold ml-4 mt-2">Unit Conversion Calculator</h1>
-        <div id="nav-button" class="mt-4 md:mt-0 flex mr-4">
-            <button class="bg-blue-500 hover:bg-blue-600 font-bold p-2 mr-2 rounded" onclick="showTab('Weight')">Weight</button>
-            <button class="bg-blue-500 hover:bg-blue-600 font-bold p-2 mr-2 rounded" onclick="showTab('Distance')">Distance</button>
-            <button class="bg-blue-500 hover:bg-blue-600 font-bold p-2 mr-2 rounded" onclick="showTab('Temperature')">Temperature</button>
-        </div>
-    </div>
+    <div id="tabs-content">
 
-    <!--Weight lb - kg -->
-    <div id="Weight_conversion" class="container mx-auto px-4">
-        <h2 class="font-bold mt-8 mb-4">Enter the weight value(s) here. *Use comma to separate the values:</h2>
-        <div>
-            <input id="weight-input" type="text" class="border border-gray-300 p-2 rounded w-full md:w-96" placeholder="Input here">
-        </div>
-        <div class="mt-4">
-            <select id="weight-unit" class="border p-2 rounded w-48">
-                <option value="lb-kg">Pounds to Kilogram</option>
-                <option value="kg-lb">Kilogram to Pounds</option>
-            </select>
-            <button id="weight-confirm" class="ml-4 w-20 h-9 bg-gray-900 text-white rounded hover:bg-gray-800" onclick="Weight_convert()">Convert</button>
-        </div>
-        <div id="weight-result" class="mt-4"></div>
-    </div>
+      <!--Weight lb - kg -->
+      <div id="weight-tab" class="tab hidden">
+        <form id="weight-form">
+          <input type="text" id="weight-value" placeholder="Please enter the weight value"
+            class="w-full p-2 rounded mb-4" />
+          <select id="weight-direction" class="w-full p-2 rounded mb-4">
+            <option value="kg-lb">Kilograms to Pounds</option>
+            <option value="lb-kg">Pounds to Kilograms</option>
+          </select>
+          <button type="submit" class="bg-red-100 text-red-600 px-4 py-2 rounded">Convert</button>
+        </form>
+        <p id="weight-result" class="text-blue-600 font-semibold mt-2"></p>
+      </div>
 
     <!--Distance miles - km -->
     <div id="Distance_conversion" class="container mx-auto px-4" style="display: none;">
@@ -54,18 +50,20 @@
     <!--Temperature F - C -->
     <div id="tem_conversion" class="container mx-auto px-4" style="display: none;">
         <h2 class="font-bold mt-8 mb-4">Enter the temperature value(s) here. *Use comma to separate the values:</h2>
-    <div>
-        <input id="temperature-input" type="text" class="border border-gray-300 p-2 rounded w-full md:w-96" placeholder="Input here">
-    </div>
-    <div class="mt-4">
-        <select id="temperature-unit" class="border p-2 rounded w-48">
-            <option value="c-f">Celsius to Fahrenheit</option>
-            <option value="f-c">Fahrenheit to Celsius</option>
-        </select>
-        <button id="temperature-confirm" class="ml-4 w-20 h-9 bg-gray-900 text-white rounded hover:bg-gray-800" onclick="Temperature_convert()">Convert</button>
-    </div>
+        <div>
+            <input id="temperature-input" type="text" class="border border-gray-300 p-2 rounded w-full md:w-96" placeholder="Input here">
+        </div>
+        <div class="mt-4">
+          <select id="temperature-unit" class="border p-2 rounded w-48">
+                <option value="c-f">Celsius to Fahrenheit</option>
+                <option value="f-c">Fahrenheit to Celsius</option>
+          </select>
+          <button id="temperature-confirm" class="ml-4 w-20 h-9 bg-gray-900 text-white rounded hover:bg-gray-800" onclick="Temperature_convert()">Convert</button>
+        </div>
     <div id="temperature-result" class="mt-4"></div>
     </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
-
