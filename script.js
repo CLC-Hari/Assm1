@@ -69,18 +69,7 @@ function Distance_convert() {
     resultDiv.innerHTML = `<p class="text-lg">Result: ${result.join(', ')} ${unit.split('-')[1]}</p>`;
 }
 
-function Temperature_convert() {
-    const input = document.getElementById('temperature-input').value;
-    const unit = document.getElementById('temperature-unit').value;
-    const values = input.split(',').map(v => v.trim());
-    
-    const converter = createConverter(unit.split('-')[0], unit.split('-')[1]);
-    const result = converter(values);
-    
-    const resultDiv = document.getElementById('temperature-result');
-    const unitSymbol = unit.split('-')[1] === 'f' ? '°F' : '°C';
-    resultDiv.innerHTML = `<p class="text-lg">Result: ${result.join(', ')} ${unitSymbol}</p>`;
-}
+
 
 
 // Initialize the page to show Weight tab by default
