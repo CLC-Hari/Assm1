@@ -12,20 +12,26 @@ const createConverter = (fromUnit, toUnit) => {
     const conversionKey = `${fromUnit}-${toUnit}`;
     const factor = conversionFactors[conversionKey];
 
-    return (value) => {
-        if (Array.isArray(value)) {
-            return value.map(v => {
-                const num = parseFloat(v);
-                if (isNaN(num)) return 'Invalid input';
-                const result = typeof factor === 'function' ? factor(num) : num * factor;
-                return typeof result === 'number' ? result.toFixed(2) : result;
-            });
-        } else {
-            const num = parseFloat(value);
+return (value) => {
+    if (Array.isArray(value)) {
+        if (value.length === 1 && value[0] === '') {
+            return ['Please enter a value'];
+        }
+
+        return value.map(v => {
+            const num = parseFloat(v);
             if (isNaN(num)) return 'Invalid input';
             const result = typeof factor === 'function' ? factor(num) : num * factor;
             return typeof result === 'number' ? result.toFixed(2) : result;
-        }
+        });
+    } else {
+        if (value.trim() === '') return 'Please enter a value';
+
+        const num = parseFloat(value);
+        if (isNaN(num)) return 'Invalid input';
+        const result = typeof factor === 'function' ? factor(num) : num * factor;
+        return typeof result === 'number' ? result.toFixed(2) : result;
+    }
     };
 };
 
@@ -69,6 +75,7 @@ function Distance_convert() {
     resultDiv.innerHTML = `<p class="text-lg">Result: ${result.join(', ')} ${unit.split('-')[1]}</p>`;
 }
 
+// Temperature conversion
 function Temperature_convert() {
     const input = document.getElementById('temperature-input').value;
     const unit = document.getElementById('temperature-unit').value;
@@ -78,9 +85,10 @@ function Temperature_convert() {
     const result = converter(values);
     
     const resultDiv = document.getElementById('temperature-result');
-    const unitSymbol = unit.split('-')[1] === 'f' ? '°F' : '°C';
-    resultDiv.innerHTML = `<p class="text-lg">Result: ${result.join(', ')} ${unitSymbol}</p>`;
+    resultDiv.innerHTML = `<p class="text-lg">Result: ${result.join(', ')} ${unit.split('-')[1]}</p>`;
 }
+
+
 
 // Initialize the page to show Weight tab by default
 document.addEventListener('DOMContentLoaded', () => {
